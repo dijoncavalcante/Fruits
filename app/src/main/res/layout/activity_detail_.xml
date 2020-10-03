@@ -1,9 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Detail_Activity">
+    <!--ok    fruit.setBotname(tv_botname.getText().toString());-->
+    <!--ok    fruit.setClimate("");-->
+    <!--ok    fruit.setDescription("");-->
+    <!--ok    fruit.setHealth("");-->
+    <!--ok    fruit.setImageurl("");-->
+    <!--ok    fruit.setOthname(tv_othname.getText().toString());-->
+    <!--ok    fruit.setPropagation("");-->
+    <!--ok    fruit.setSoil("");-->
+    <!--ok    fruit.setTfvname(tv_tfvname.getText().toString());-->
+    <!--ok    fruit.setUses("");-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/iv_imageurlDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_camera" />
+
+    <TextView
+        android:id="@+id/tv_tfvnameDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        tools:text="Braga Dijon" />
+
+    <TextView
+        android:id="@+id/tv_botnameDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        tools:text="dijoncavalcante@gmail.com" />
+
+    <TextView
+        android:id="@+id/tv_othnameDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        tools:text="dijoncavalcante@gmail.com" />
+
+    <TextView
+        android:id="@+id/tv_climateDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        tools:text="dijoncavalcante@gmail.com" />
+
+    <TextView
+        android:id="@+id/tv_descriptionDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        tools:text="dijoncavalcante@gmail.com" />
+
+    <TextView
+        android:id="@+id/tv_healthDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        tools:text="dijoncavalcante@gmail.com" />
+
+
+    <TextView
+        android:id="@+id/tv_propagationDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        tools:text="dijoncavalcante@gmail.com" />
+
+    <TextView
+        android:id="@+id/tv_soilDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        tools:text="dijoncavalcante@gmail.com" />
+
+    <TextView
+        android:id="@+id/tv_usesDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        tools:text="dijoncavalcante@gmail.com" />
+
+</LinearLayout>

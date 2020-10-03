@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dijon.fruit.Detail_Activity;
 import com.dijon.fruit.MainActivity;
 import com.dijon.fruit.R;
 import com.squareup.picasso.Picasso;
@@ -27,6 +28,7 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
 
     List<HashMap<String, String>> mapList;
     RequisicaoObj requisicaoObj;
+    Fruit fruit;
     Context context;
 
     public AdapterFruit(List<HashMap<String, String>> mapList) {
@@ -40,6 +42,11 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
         this.requisicaoObj = requisicaoObj;
         this.context = context;
     }
+    //TODO prestar atencao aqui buscar fruit por item
+    public AdapterFruit(Context context, Fruit fruit) {
+        this.fruit = fruit;
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -49,16 +56,13 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull AdapterFruit.ViewHolder holder, int position) {
-//        HashMap<String, String> map = mapList.get(position);
-//        holder.bindView(map);
-
         Fruit FruitObj = requisicaoObj.getResults().get(position);
         holder.bindView(FruitObj);
     }
 
     @Override
     public int getItemCount() {
-        return requisicaoObj.getResults().size();// mapList.size();
+        return requisicaoObj.getResults().size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
@@ -67,6 +71,7 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
 
         public ViewHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             tv_tfvname = itemView.findViewById(R.id.tv_tfvname);
             tv_botname = itemView.findViewById(R.id.tv_botname);
             tv_othname = itemView.findViewById(R.id.tv_othname);
@@ -102,8 +107,7 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
             fruit.setUses("");
             Bundle bundle = new Bundle();
             bundle.putSerializable("fruit", fruit);
-            //TODO change class to new detail class
-            Intent intent = new Intent(view.getContext(), MainActivity.class);
+            Intent intent = new Intent(view.getContext(), Detail_Activity.class);
             intent.putExtras(bundle);
             view.getContext().startActivity(intent);
         }
