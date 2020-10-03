@@ -1,6 +1,8 @@
 package adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dijon.fruit.MainActivity;
 import com.dijon.fruit.R;
 import com.squareup.picasso.Picasso;
 
@@ -58,7 +61,7 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
         return requisicaoObj.getResults().size();// mapList.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
         TextView tv_tfvname, tv_botname, tv_othname;
         ImageView iv_imageurl;
 
@@ -82,6 +85,27 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
                     .into(iv_imageurl);
 
 
+        }
+
+        @Override
+        public void onClick(View view) {
+            Fruit fruit = new Fruit();
+            fruit.setBotname(tv_botname.getText().toString());
+            fruit.setClimate("");
+            fruit.setDescription("");
+            fruit.setHealth("");
+            fruit.setImageurl("");
+            fruit.setOthname(tv_othname.getText().toString());
+            fruit.setPropagation("");
+            fruit.setSoil("");
+            fruit.setTfvname(tv_tfvname.getText().toString());
+            fruit.setUses("");
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("fruit", fruit);
+            //TODO change class to new detail class
+            Intent intent = new Intent(view.getContext(), MainActivity.class);
+            intent.putExtras(bundle);
+            view.getContext().startActivity(intent);
         }
     }
 }
