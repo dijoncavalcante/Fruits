@@ -36,6 +36,10 @@ public class Detail_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_);
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
         iv_imageurlDetail = findViewById(R.id.iv_imageurlDetail);
         tv_tfvnameDetail = findViewById(R.id.tv_tfvnameDetail);
         tv_botnameDetail = findViewById(R.id.tv_botnameDetail);

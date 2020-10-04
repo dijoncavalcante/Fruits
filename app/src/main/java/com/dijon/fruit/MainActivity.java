@@ -1,9 +1,13 @@
 package com.dijon.fruit;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayoutManager linearLayoutManager;
     Call<RequisicaoObj> call;
     RequisicaoObj requisicaoObj;
-
+    private SearchView searchView;
 
     @Override
 
@@ -94,5 +98,31 @@ public class MainActivity extends AppCompatActivity {
                 snackbar.show();
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_fruits_and_veg, menu);
+        SearchManager searchManager =(SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView = (SearchView) menu.findItem(R.id.action_search);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                //Adapter.getFilter().filter(query)
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                //Adapter.getFilter().filter(query)
+                return false;
+            }
+        });
+            return true;
+        }
+
     }
 }
