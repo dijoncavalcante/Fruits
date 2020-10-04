@@ -1,13 +1,9 @@
 package adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -16,12 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.dijon.fruit.Detail_Activity;
-import com.dijon.fruit.MainActivity;
 import com.dijon.fruit.R;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,20 +21,19 @@ import java.util.List;
 
 import model.Fruit;
 import model.RequisicaoObj;
-import retrofit2.Callback;
 
 public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> implements Filterable {
 
     List<HashMap<String, String>> mapList;
     RequisicaoObj requisicaoObj;
-    RequisicaoObj getUserModelListFiltered;
+    ArrayList<Fruit> getUserModelListFiltered;
     Fruit fruit;
     Context context;
     OnRecyclerViewItemClickListener listener;
 
     public AdapterFruit(Context context, RequisicaoObj requisicaoObj) {
         this.requisicaoObj = requisicaoObj;
-        this.getUserModelListFiltered = requisicaoObj;
+        this.getUserModelListFiltered = requisicaoObj.getResults();
         this.context = context;
     }
 
@@ -84,14 +75,14 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
                 FilterResults filterResults = new FilterResults();
 
                 if (charSequence == null | charSequence.length() == 0) {
-                    filterResults.count = getUserModelListFiltered.getResults().size();
+                    filterResults.count = getUserModelListFiltered.size();
                     filterResults.values = getUserModelListFiltered;
                 } else {
                     String searchChar = charSequence.toString().toLowerCase();
 
                     List<Fruit> resultData = new ArrayList<>();
 
-                    for (Fruit result : requisicaoObj.getResults()) {
+                    for (Fruit result : getUserModelListFiltered) {
                         if (result.getTfvname().toLowerCase().contains(searchChar)) {
                             resultData.add(result);
                         }
@@ -104,11 +95,6 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
 
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                //TODO ERRO nesta linha
-                /***
-                 * java.lang.ClassCastException: model.RequisicaoObj cannot be cast to java.util.ArrayList
-                 *  at adapter.AdapterFruit$2.publishResults(AdapterFruit.java:107)
-                 */
                 requisicaoObj.results = (ArrayList<Fruit>) filterResults.values;
                 notifyDataSetChanged();
             }

@@ -110,8 +110,8 @@ public class MainActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-                //Adapter.getFilter().filter(query)
-                return false;
+                adapterFruit.getFilter().filter(s);
+                return true;
             }
 
             @Override
