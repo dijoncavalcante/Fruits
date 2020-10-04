@@ -83,22 +83,18 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tv_tfvname, tv_botname, tv_othname;
+        TextView tv_tfvname;
         ImageView iv_imageurl;
         View.OnClickListener onClickListener;
 
         public ViewHolder(View itemView) {
             super(itemView);
             tv_tfvname = itemView.findViewById(R.id.tv_tfvname);
-            tv_botname = itemView.findViewById(R.id.tv_botname);
-            tv_othname = itemView.findViewById(R.id.tv_othname);
             iv_imageurl = itemView.findViewById(R.id.iv_imageurl);
         }
 
         public void bindView(Fruit FruitObj) {
             tv_tfvname.setText(FruitObj.getTfvname());
-            tv_botname.setText(FruitObj.getBotname());
-            tv_othname.setText(FruitObj.getOthname());
             String imageurl = FruitObj.getImageurl();
             Picasso.with(iv_imageurl.getContext())
                     .load(imageurl)

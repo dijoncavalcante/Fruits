@@ -33,19 +33,6 @@
                 android:textSize="18sp"
                 tools:text="Braga Dijon" />
 
-            <TextView
-                android:id="@+id/tv_botname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                tools:text="dijoncavalcante@gmail.com" />
-
-            <TextView
-                android:id="@+id/tv_othname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                tools:text="dijoncavalcante@gmail.com" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>
