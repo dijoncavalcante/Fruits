@@ -19,6 +19,8 @@ import com.dijon.fruit.MainActivity;
 import com.dijon.fruit.R;
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -56,24 +58,21 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_fruits, parent, false));
     }
 
-    public void setOnItemClickListener(OnRecyclerViewItemClickListener listener)
-    {
+    public void setOnItemClickListener(OnRecyclerViewItemClickListener listener) {
         this.listener = listener;
     }
 
     @Override
     public void onBindViewHolder(@NonNull AdapterFruit.ViewHolder holder, final int position) {
-
         Fruit FruitObj = requisicaoObj.getResults().get(position);
         holder.bindView(FruitObj);
-        //holder.iv_imageurl.setOnClickListener(holder.iv_imageurl.setOnClickListener(MainActivity.ExtraData.class.getEve));
-
-        holder.iv_imageurl.setOnClickListener(new View.OnClickListener()
-        {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                listener.onRecyclerViewItemClicked(position, -1);
+            public void onClick(View view) {
+                TextView tv_name = (TextView) view.findViewById(R.id.tv_tfvname);
+                fruit = new Fruit();
+                fruit.setTfvname(tv_name.getText().toString());
+                listener.onRecyclerViewItemClicked(fruit);
             }
         });
     }
@@ -116,6 +115,6 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
     }
 
     public interface OnRecyclerViewItemClickListener {
-        public void onRecyclerViewItemClicked(int position, int id);
+        void onRecyclerViewItemClicked(Fruit FruitObj);
     }
 }

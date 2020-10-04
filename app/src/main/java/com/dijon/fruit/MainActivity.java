@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayoutManager linearLayoutManager;
     Call<RequisicaoObj> call;
     RequisicaoObj requisicaoObj;
-    private SearchView searchView;
+    SearchView searchView;
 
     @Override
 
@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         searchFruits();
+
     }
 
     public void searchFruits() {
@@ -72,11 +73,9 @@ public class MainActivity extends AppCompatActivity {
                 rvList.setAdapter(adapterFruit);
                 adapterFruit.setOnItemClickListener(new AdapterFruit.OnRecyclerViewItemClickListener() {
                     @Override
-                    public void onRecyclerViewItemClicked(int position, int id) {
-                        Fruit fruit = new Fruit();
-                        fruit.setTfvname(requisicaoObj.getResults().get(position).getTfvname());
+                    public void onRecyclerViewItemClicked(Fruit FruitObj) {
                         Bundle bundle = new Bundle();
-                        bundle.putSerializable("fruit", fruit);
+                        bundle.putSerializable("fruit", FruitObj);
                         Intent intent = new Intent(MainActivity.this, Detail_Activity.class);
                         intent.putExtras(bundle);
                         MainActivity.this.startActivity(intent);
@@ -102,27 +101,26 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_fruits_and_veg, menu);
-        SearchManager searchManager =(SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchView = (SearchView) menu.findItem(R.id.action_search);
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setMaxWidth(Integer.MAX_VALUE);
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                //Adapter.getFilter().filter(query)
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                //Adapter.getFilter().filter(query)
-                return false;
-            }
-        });
-            return true;
-        }
-
+//        getMenuInflater().inflate(R.menu.menu_fruits_and_veg, menu);
+//        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+//        searchView = (SearchView) menu.findItem(R.id.action_search);
+//        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+//        searchView.setMaxWidth(Integer.MAX_VALUE);
+//
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String s) {
+//                //Adapter.getFilter().filter(query)
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String s) {
+//                //Adapter.getFilter().filter(query)
+//                return false;
+//            }
+//        });
+        return true;
     }
+
 }
