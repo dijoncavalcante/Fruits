@@ -43,6 +43,7 @@ http://api.tropicalfruitandveg.com/tfvjsonapi.php?tfvitem=banana
  */
 public class MainActivity extends AppCompatActivity {
     private final static String TAG = "MainActivity";
+    AdapterFruit adapterFruit;
     RecyclerView rvList;
     LinearLayoutManager linearLayoutManager;
     Call<RequisicaoObj> call;
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<RequisicaoObj> call, Response<RequisicaoObj> response) {
                 requisicaoObj = response.body();
-                AdapterFruit adapterFruit = new AdapterFruit(MainActivity.this, requisicaoObj);
+                adapterFruit = new AdapterFruit(MainActivity.this, requisicaoObj);
                 rvList.setAdapter(adapterFruit);
                 adapterFruit.setOnItemClickListener(new AdapterFruit.OnRecyclerViewItemClickListener() {
                     @Override
@@ -115,8 +116,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String s) {
-                //Adapter.getFilter().filter(query)
-                return false;
+                adapterFruit.getFilter().filter(s);
+                return true;
             }
         });
         return true;
