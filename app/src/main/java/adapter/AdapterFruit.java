@@ -90,7 +90,6 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
 
         public ViewHolder(View itemView) {
             super(itemView);
-            //itemView.setOnClickListener(this);
             tv_tfvname = itemView.findViewById(R.id.tv_tfvname);
             tv_botname = itemView.findViewById(R.id.tv_botname);
             tv_othname = itemView.findViewById(R.id.tv_othname);
@@ -108,25 +107,6 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
                     .error(R.drawable.ic_camera)
                     .into(iv_imageurl);
         }
-//        @Override
-//        public void onClick(View view) {
-//            Fruit fruit = new Fruit();
-//            fruit.setBotname(tv_botname.getText().toString());
-//            fruit.setClimate("");
-//            fruit.setDescription("");
-//            fruit.setHealth("");
-//            fruit.setImageurl("");
-//            fruit.setOthname(tv_othname.getText().toString());
-//            fruit.setPropagation("");
-//            fruit.setSoil("");
-//            fruit.setTfvname(tv_tfvname.getText().toString());
-//            fruit.setUses("");
-//            Bundle bundle = new Bundle();
-//            bundle.putSerializable("fruit", fruit);
-//            Intent intent = new Intent(view.getContext(), Detail_Activity.class);
-//            intent.putExtras(bundle);
-//            view.getContext().startActivity(intent);
-//        }
     }
 
     public interface AdapterServiceInterface {

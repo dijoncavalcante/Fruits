@@ -37,7 +37,7 @@ http://api.tropicalfruitandveg.com/tfvjsonapi.php?tfvitem= <nome do item>
 alterar <item_name> por um nome de fruta ou vegetal (por exemplo
 http://api.tropicalfruitandveg.com/tfvjsonapi.php?tfvitem=banana
  */
-public class MainActivity extends AppCompatActivity implements AdapterFruit.AdapterServiceInterface, AdapterFruit.OnRecyclerViewItemClickListener {
+public class MainActivity extends AppCompatActivity {
     private final static String TAG = "MainActivity";
     RecyclerView rvList;
     LinearLayoutManager linearLayoutManager;
@@ -50,14 +50,10 @@ public class MainActivity extends AppCompatActivity implements AdapterFruit.Adap
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         searchFruits();
-
-
     }
 
     public void searchFruits() {
-
         linearLayoutManager = new LinearLayoutManager(this);
         rvList = findViewById(R.id.rvList);
         rvList.setHasFixedSize(true);
@@ -74,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements AdapterFruit.Adap
                     @Override
                     public void onRecyclerViewItemClicked(int position, int id) {
                         Fruit fruit = new Fruit();
-                        fruit.setTfvname("banana");
+                        fruit.setTfvname(requisicaoObj.getResults().get(position).getTfvname());
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("fruit", fruit);
                         Intent intent = new Intent(MainActivity.this, Detail_Activity.class);
@@ -98,34 +94,5 @@ public class MainActivity extends AppCompatActivity implements AdapterFruit.Adap
                 snackbar.show();
             }
         });
-
-
-    }
-
-    @Override
-    public void onRecyclerViewItemClicked(int position, int id) {
-        if (id == -1) {
-            Toast.makeText(this, "complete item clicked", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "setting button clicked", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
-    public void onClick(View view) {
-        TextView tv_name;
-        tv_name = view.findViewById(R.id.tv_tfvname);
-        Fruit fruit = new Fruit();
-        fruit.setTfvname(tv_name.getText().toString());
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("fruit", fruit);
-        Intent intent = new Intent(view.getContext(), Detail_Activity.class);
-        intent.putExtras(bundle);
-        view.getContext().startActivity(intent);
-    }
-
-    @Override
-    public void onItemClick(int position) {
-        Toast.makeText(this, "TETSTE", Toast.LENGTH_SHORT).show();
     }
 }
