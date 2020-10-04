@@ -49,8 +49,6 @@ public class Detail_Activity extends AppCompatActivity {
 
         final Fruit fruit_ = (Fruit) getIntent().getSerializableExtra("fruit");
         if (fruit_ != null) {
-
-
             call = new RetrofitConfig().getFruitService().getFruitDetail(fruit_.getTfvname());
             call.enqueue(new Callback<RequisicaoObj>() {
                 @Override
@@ -58,8 +56,8 @@ public class Detail_Activity extends AppCompatActivity {
                     Log.i(TAG, "onResponse: ");
                     requisicaoObj = response.body();
                     Fruit[] teste = requisicaoObj.getResults().toArray(new Fruit[requisicaoObj.getResults().size()]);
-                    ArrayList<Fruit> fruitArrayList =  requisicaoObj.getResults();
-                    Picasso.with(getBaseContext())
+                    ArrayList<Fruit> fruitArrayList = requisicaoObj.getResults();
+                    Picasso.with(iv_imageurlDetail.getContext())
                             .load(teste[0].getImageurl())
                             .placeholder(R.drawable.ic_camera)
                             .error(R.drawable.ic_camera)
@@ -79,51 +77,8 @@ public class Detail_Activity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<RequisicaoObj> call, Throwable t) {
                     Log.e(TAG, "No internet connection");
-
                 }
             });
-
-
-//
-//
-//                    (new Callback<Fruit>() {
-//                @Override
-//                public void onResponse(Call<Fruit> call, Response<Fruit> response) {
-//                    Log.i("TAG", "onResponse: ");
-//                    fruit = response.body();
-//                    AdapterFruit adapterFruit = new AdapterFruit(Detail_Activity.this, fruit);
-//
-//                    Picasso.with(getBaseContext())
-//                            .load(fruit.getImageurl())
-//                            .placeholder(R.drawable.ic_camera)
-//                            .error(R.drawable.ic_camera)
-//                            .into(iv_imageurlDetail);
-//
-//                    tv_botnameDetail.setText(fruit.getBotname());
-//                    tv_climateDetail.setText(fruit.getClimate());
-//                    tv_descriptionDetail.setText(fruit.getDescription());
-//                    tv_healthDetail.setText(fruit.getHealth());
-//                    tv_othnameDetail.setText(fruit.getOthname());
-//                    tv_propagationDetail.setText(fruit.getPropagation());
-//                    tv_soilDetail.setText(fruit.getSoil());
-//                    tv_tfvnameDetail.setText(fruit.getTfvname());
-//                    tv_usesDetail.setText(fruit.getUses());
-//                }
-//
-//                @Override
-//                public void onFailure(Call<Fruit> call, Throwable t) {
-//                    Log.e(TAG, "No internet connection");
-////                    Snackbar snackbar = Snackbar
-////                            .make(rvList, "No internet connection", Snackbar.LENGTH_SHORT)
-////                            .setAction("Try", new View.OnClickListener() {
-////                                @Override
-////                                public void onClick(View v) {
-////                                    searchFruits();
-////                                }
-////                            });
-////                    snackbar.show();
-//                }
-//            });
         }
     }
 
@@ -135,5 +90,10 @@ public class Detail_Activity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

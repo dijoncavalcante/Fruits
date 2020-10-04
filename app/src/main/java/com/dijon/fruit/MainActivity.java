@@ -1,16 +1,20 @@
 package com.dijon.fruit;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-
 import com.google.android.material.snackbar.Snackbar;
 
 import adapter.AdapterFruit;
+import model.Fruit;
 import model.RequisicaoObj;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,22 +37,26 @@ http://api.tropicalfruitandveg.com/tfvjsonapi.php?tfvitem= <nome do item>
 alterar <item_name> por um nome de fruta ou vegetal (por exemplo
 http://api.tropicalfruitandveg.com/tfvjsonapi.php?tfvitem=banana
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterFruit.AdapterServiceInterface, AdapterFruit.OnRecyclerViewItemClickListener {
     private final static String TAG = "MainActivity";
     RecyclerView rvList;
     LinearLayoutManager linearLayoutManager;
     Call<RequisicaoObj> call;
     RequisicaoObj requisicaoObj;
 
+
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         searchFruits();
+
+
     }
 
-    public void searchFruits(){
+    public void searchFruits() {
 
         linearLayoutManager = new LinearLayoutManager(this);
         rvList = findViewById(R.id.rvList);
@@ -62,6 +70,18 @@ public class MainActivity extends AppCompatActivity {
                 requisicaoObj = response.body();
                 AdapterFruit adapterFruit = new AdapterFruit(MainActivity.this, requisicaoObj);
                 rvList.setAdapter(adapterFruit);
+                adapterFruit.setOnItemClickListener(new AdapterFruit.OnRecyclerViewItemClickListener() {
+                    @Override
+                    public void onRecyclerViewItemClicked(int position, int id) {
+                        Fruit fruit = new Fruit();
+                        fruit.setTfvname("banana");
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("fruit", fruit);
+                        Intent intent = new Intent(MainActivity.this, Detail_Activity.class);
+                        intent.putExtras(bundle);
+                        MainActivity.this.startActivity(intent);
+                    }
+                });
             }
 
             @Override
@@ -78,5 +98,34 @@ public class MainActivity extends AppCompatActivity {
                 snackbar.show();
             }
         });
+
+
+    }
+
+    @Override
+    public void onRecyclerViewItemClicked(int position, int id) {
+        if (id == -1) {
+            Toast.makeText(this, "complete item clicked", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "setting button clicked", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        TextView tv_name;
+        tv_name = view.findViewById(R.id.tv_tfvname);
+        Fruit fruit = new Fruit();
+        fruit.setTfvname(tv_name.getText().toString());
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("fruit", fruit);
+        Intent intent = new Intent(view.getContext(), Detail_Activity.class);
+        intent.putExtras(bundle);
+        view.getContext().startActivity(intent);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Toast.makeText(this, "TETSTE", Toast.LENGTH_SHORT).show();
     }
 }
