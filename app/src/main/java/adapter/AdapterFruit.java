@@ -37,21 +37,10 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
     Context context;
     OnRecyclerViewItemClickListener listener;
 
-    public AdapterFruit(List<HashMap<String, String>> mapList) {
-        this.mapList = mapList;
-    }
-
     public AdapterFruit(Context context, RequisicaoObj requisicaoObj) {
         this.requisicaoObj = requisicaoObj;
         this.context = context;
     }
-
-    //TODO prestar atencao aqui buscar fruit por item
-    public AdapterFruit(Context context, Fruit fruit) {
-        this.fruit = fruit;
-        this.context = context;
-    }
-
     @NonNull
     @Override
     public AdapterFruit.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
