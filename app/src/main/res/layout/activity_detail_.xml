@@ -13,16 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <!--ok    fruit.setBotname(tv_botname.getText().toString());-->
-        <!--ok    fruit.setClimate("");-->
-        <!--ok    fruit.setDescription("");-->
-        <!--ok    fruit.setHealth("");-->
-        <!--ok    fruit.setImageurl("");-->
-        <!--ok    fruit.setOthname(tv_othname.getText().toString());-->
-        <!--ok    fruit.setPropagation("");-->
-        <!--ok    fruit.setSoil("");-->
-        <!--ok    fruit.setTfvname(tv_tfvname.getText().toString());-->
-        <!--ok    fruit.setUses("");-->
 
         <ImageView
             android:id="@+id/iv_imageurlDetail"
@@ -33,68 +23,141 @@
             android:src="@drawable/ic_camera" />
 
         <TextView
-            android:id="@+id/tv_tfvnameDetail"
+            android:id="@+id/tv_tfvnameDetailLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            tools:text="Braga Dijon" />
+            android:textStyle="bold"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/tv_tfvnameDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textSize="18sp"
+            android:text="Braga Dijon" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Name Detail" />
 
         <TextView
             android:id="@+id/tv_botnameDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:textSize="12sp"
-            tools:text="dijoncavalcante@gmail.com" />
+            android:text="dijoncavalcante@gmail.com" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Other Name Detail" />
 
         <TextView
             android:id="@+id/tv_othnameDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:textSize="12sp"
-            tools:text="dijoncavalcante@gmail.com" />
+            android:text="dijoncavalcante@gmail.com" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Climate Detail" />
 
         <TextView
             android:id="@+id/tv_climateDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:textSize="12sp"
-            tools:text="dijoncavalcante@gmail.com" />
+            android:text="dijoncavalcante@gmail.com" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Description Detail" />
 
         <TextView
             android:id="@+id/tv_descriptionDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:textSize="12sp"
-            tools:text="dijoncavalcante@gmail.com" />
+            android:text="dijoncavalcante@gmail.com" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Health Detail" />
 
         <TextView
             android:id="@+id/tv_healthDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:textSize="12sp"
-            tools:text="dijoncavalcante@gmail.com" />
+            android:text="dijoncavalcante@gmail.com" />
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Propagation Detail" />
 
         <TextView
             android:id="@+id/tv_propagationDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:textSize="12sp"
-            tools:text="dijoncavalcante@gmail.com" />
+            android:text="dijoncavalcante@gmail.com" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Soil Detail" />
 
         <TextView
             android:id="@+id/tv_soilDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:textSize="12sp"
-            tools:text="dijoncavalcante@gmail.com" />
+            android:text="dijoncavalcante@gmail.com" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Uses Detail" />
 
         <TextView
             android:id="@+id/tv_usesDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:textSize="12sp"
-            tools:text="dijoncavalcante@gmail.com" />
+            android:text="dijoncavalcante@gmail.com" />
 
     </LinearLayout>
 </ScrollView>
