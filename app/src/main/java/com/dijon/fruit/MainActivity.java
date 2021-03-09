@@ -24,8 +24,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-//import android.widget.SearchView;
-
 /*
 1) Escreva um aplicativo Android com duas atividades, na primeira, você deve:
 
@@ -89,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<RequisicaoObj> call, Throwable t) {
                 Log.e(TAG, "No internet connection");
                 Snackbar snackbar = Snackbar
-                        .make(rvList, "No internet connection", Snackbar.LENGTH_SHORT)
+                        .make(rvList, "No internet connection", Snackbar.LENGTH_LONG)
                         .setAction("Try", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -112,13 +110,37 @@ public class MainActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-                adapterFruit.getFilter().filter(s);
+                try {
+                    adapterFruit.getFilter().filter(s);
+                } catch (NullPointerException e) {
+                    Snackbar snackbar = Snackbar
+                            .make(rvList, "No internet connection", Snackbar.LENGTH_LONG)
+                            .setAction("Try", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    searchFruits();
+                                }
+                            });
+                    snackbar.show();
+                }
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String s) {
-                adapterFruit.getFilter().filter(s);
+                try {
+                    adapterFruit.getFilter().filter(s);
+                } catch (NullPointerException e) {
+                    Snackbar snackbar = Snackbar
+                            .make(rvList, "No internet connection", Snackbar.LENGTH_LONG)
+                            .setAction("Try", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    searchFruits();
+                                }
+                            });
+                    snackbar.show();
+                }
                 return true;
             }
         });
