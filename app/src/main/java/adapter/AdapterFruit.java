@@ -105,7 +105,6 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView tv_tfvname;
         ImageView iv_imageurl;
-        View.OnClickListener onClickListener;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -122,12 +121,6 @@ public class AdapterFruit extends RecyclerView.Adapter<AdapterFruit.ViewHolder> 
                     .error(R.drawable.ic_camera)
                     .into(iv_imageurl);
         }
-    }
-
-    public interface AdapterServiceInterface {
-        void onClick(View view);
-
-        void onItemClick(int position);
     }
 
     public interface OnRecyclerViewItemClickListener {
