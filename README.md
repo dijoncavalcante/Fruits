@@ -8,4 +8,4 @@ This project make use of the  API TROPICAL FRUIT AND VEG to help in some scenari
 # Layout
 This layouts were done by me rsrs.
 
-![Main Screen - All fruits and vegetables](https://github.com/dijoncavalcante/Fruits/blob/main/Screenshot_20210309-170331_Fruits.jpg width="200")
+![Main Screen - All fruits and vegetables](https://github.com/dijoncavalcante/Fruits/blob/main/Screenshot_20210309-170331_Fruits.jpg){ width=50% }
