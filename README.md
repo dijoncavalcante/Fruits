@@ -14,16 +14,10 @@ This project use the follow technologies and tools:
 - [Cardview](https://developer.android.com/guide/topics/ui/layout/cardview?hl=pt-br)
 - [SearchView](https://developer.android.com/guide/topics/search/search-dialog)
 
-# APK available
-Download apk [here](https://github.com/dijoncavalcante/Fruits/blob/main/app-debug.apk)
-
 # Layout
 This layouts were done by me rsrs.
 
-<img src="https://github.com/dijoncavalcante/Fruits/blob/main/Screenshot_20210309-170331_Fruits.jpg" width="400"> <img src="https://github.com/dijoncavalcante/Fruits/blob/main/Screenshot_20210309-170433_Fruits.jpg" width="400">
-
-<img src="https://github.com/dijoncavalcante/Fruits/blob/main/Screenshot_20210309-170444_Fruits.jpg" width="400"> <img src="https://github.com/dijoncavalcante/Fruits/blob/main/Screenshot_20210309-170342_Fruits.jpg" width="400">
-
-<img src="https://github.com/dijoncavalcante/Fruits/blob/main/Screenshot_20210309-170400_Fruits.jpg" width="400"> <img src="https://github.com/dijoncavalcante/Fruits/blob/main/Screenshot_20210309-170535_Fruits.jpg" width="400">
+<img src="app/src/main/res/screenshot/demo-gif.gif" width="350"> 
+<img src="https://github.com/dijoncavalcante/Fruits/blob/main/Screenshot_20210309-170535_Fruits.jpg" width="400">
 
 
