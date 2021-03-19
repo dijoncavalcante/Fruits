@@ -17,7 +17,4 @@ This project use the follow technologies and tools:
 # Layout
 This layouts were done by me rsrs.
 
-<img src="app/src/main/res/screenshot/demo-gif.gif" width="350"> 
-<img src="https://github.com/dijoncavalcante/Fruits/blob/main/Screenshot_20210309-170535_Fruits.jpg" width="400">
-
-
+<img src="app/src/main/res/screenshot/demo-gif.gif" width="350">   <img src="app/src/main/res/screenshot/no-internet.jpg" width="350">
