@@ -37,7 +37,7 @@ No segundo, você deve mostrar um tela detalhada
 de cada fruta clicada usada na primeira tela, você precisará fazer uma solicitação para
 http://api.tropicalfruitandveg.com/tfvjsonapi.php?tfvitem= <nome do item>
 alterar <item_name> por um nome de fruta ou vegetal (por exemplo
-http://api.tropicalfruitandveg.com/tfvjsonapi.php?tfvitem=banana
+http://api..com/tfvjsonapi.php?tfvitem=banana
  */
 public class MainActivity extends AppCompatActivity {
     private final static String TAG = "MainActivity";
