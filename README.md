@@ -14,9 +14,6 @@ This project use the follow technologies and tools:
 - [Cardview](https://developer.android.com/guide/topics/ui/layout/cardview?hl=pt-br)
 - [SearchView](https://developer.android.com/guide/topics/search/search-dialog)
 
-# APK available
-Download apk [here](https://github.com/dijoncavalcante/Fruits/blob/main/app-debug.apk)
-
 # Layout
 This layouts were done by me rsrs.
 
