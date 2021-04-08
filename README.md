@@ -1,3 +1,8 @@
+# Layout
+This layouts were done by me rsrs.
+
+<img src="app/src/main/res/screenshot/demo-gif.gif" width="200"> <img src="app/src/main/res/screenshot/no-internet.jpg" width="200">
+
 # Welcome to Fruits!
 This project show fruits and vegetables of the an  API
 Project created to demonstrate some android apps development concepts. (personal)
@@ -13,8 +18,3 @@ This project use the follow technologies and tools:
 - [Recyclerview](https://developer.android.com/guide/topics/ui/layout/recyclerview?hl=pt-br)
 - [Cardview](https://developer.android.com/guide/topics/ui/layout/cardview?hl=pt-br)
 - [SearchView](https://developer.android.com/guide/topics/search/search-dialog)
-
-# Layout
-This layouts were done by me rsrs.
-
-<img src="app/src/main/res/screenshot/demo-gif.gif" width="350">   <img src="app/src/main/res/screenshot/no-internet.jpg" width="350">
